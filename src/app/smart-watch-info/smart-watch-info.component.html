@@ -1,0 +1,113 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
+<app-nav></app-nav>
+<div class="container is-desktop" id="bcg" style="margin-top: 5%;">
+  <div class="columns is-desktop">
+    <div class="column">
+      <figure>
+        <img src="./assets/watch1.png" style="width: 180px; height: 190px; border: 10px solid white; border-radius: 15px">
+      </figure>
+    </div>
+    <div class="column">
+      <div class="card" style="width: 100%; text-align: left">
+        <header class="card-header">
+          <p class="card-header-title">
+            FitBit Versa II
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            Fitbit Versa 2 sú inteligentné hodinky vyvinuté spoločnosťou Fitbit, ktorá sa špecializuje na zariadenia určené na sledovanie kondície.
+            Fitbit Versa 2 sú navrhnuté ako všestranné inteligentné hodinky,
+            ktoré dokážu sledovať rôzne fitness metriky, poskytovať upozornenia z pripojeného smartfónu a ponúkajú množstvo ďalších funkcií,
+            ktore môžu byť užitočné pre zdravotnú starostlivosť.
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="currentUser === 'e2FZnn962YZQW23c59eLTzlHPSl1'">
+  <div *ngIf="isLoggedIn()" class="container is-desktop" style="margin-top: 3%; padding: 50px" id="scroll; border-collapse: collapse;" >
+    <div class="columns is-desktop">
+      <div class="column">
+    <div class="table-responsive-sm">
+    <p class="title">FitBit Versa2 Data</p>
+    <div class="scrolling" id="htmlData">
+      <table class="table">
+
+        <tr>
+          <th  class="text-center">Dátum</th>
+          <th  class="text-center">Tep srdca</th>
+          <th  class="text-center">Činnosť</th>
+        </tr>
+
+        <ng-container *ngFor='let i of (watchActivitiesData$ | async)?.["activities-heart"]'>
+          <tr>
+            <td>{{ i['dateTime'] }}</td>
+            <td>{{ i['value'].restingHeartRate }} </td>
+            <td> Odpočinok</td>
+          </tr>
+        </ng-container>
+
+      </table>
+    </div>
+    <div class="col-md-4 text-right" style="margin-top: 2%">
+      <button class="btn btn-outline-secondary mr-4" (click)="openPDF()">Download PDF</button>
+    </div>
+    <!--    <div class="col-md-4 text-right">-->
+    <!--      <button class="btn btn-success btn-block" (click)="fileDownloadCSV()">Download CSV</button>-->
+    <!--    </div>-->
+  </div>
+  </div>
+<div class="column" style="position: relative; text-align: center; left: 15%" >
+  <div style="width:50%" >
+    <canvas id="myChart" width="400" height="400"></canvas>
+  </div>
+</div>
+    </div>
+  </div>
+  </ng-container>
+<ng-container *ngIf="currentUser === '5o6uneDu0KbLOWC2RSzIYSt9Aa43'">
+  <div *ngIf="isLoggedIn()" class="container is-desktop" style="margin-top: 3%; padding: 50px" id="scroll; border-collapse: collapse;" >
+    <div class="columns is-desktop">
+      <div class="column">
+        <div class="table-responsive-sm">
+          <p class="title">FitBit Versa2 Data</p>
+          <div class="scrolling" id="htmlData">
+            <table class="table">
+
+              <tr>
+                <th  class="text-center">Dátum</th>
+                <th  class="text-center">Tep srdca</th>
+                <th  class="text-center">Činnosť</th>
+              </tr>
+
+              <ng-container *ngFor='let i of (watchActivitiesData01$ | async)?.["activities-heart"]'>
+                <tr>
+                  <td>{{ i['dateTime'] }}</td>
+                  <td>{{ i['value'].restingHeartRate }} </td>
+                  <td> Odpočinok</td>
+                </tr>
+              </ng-container>
+
+            </table>
+          </div>
+          <div class="col-md-4 text-right" style="margin-top: 2%">
+            <button class="btn btn-outline-secondary mr-4" (click)="openPDF()">Download PDF</button>
+          </div>
+          <!--    <div class="col-md-4 text-right">-->
+          <!--      <button class="btn btn-success btn-block" (click)="fileDownloadCSV()">Download CSV</button>-->
+          <!--    </div>-->
+        </div>
+      </div>
+      <div class="column" style="position: relative; text-align: center; left: 15%" >
+        <div style="width:50%" >
+          <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<app-footer></app-footer>
+

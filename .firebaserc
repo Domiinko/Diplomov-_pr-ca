@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "physiosmart-6729e"
+  },
+  "targets": {
+    "physiosmart-6729e": {
+      "hosting": {
+        "FyzioApp": [
+          "physiosmart-6729e"
+        ]
+      }
+    }
+  }
+}

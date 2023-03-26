@@ -1,0 +1,45 @@
+<app-header></app-header>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <img src="./assets/pulse.png" alt="logo" width="100px">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+
+      <a *ngIf="isLoggedIn()" class="btn btn-outline-secondary mr-4" routerLink="/Main" routerLinkActive="active"> Hlavná stránka</a>
+      <a *ngIf="!isLoggedIn()" class="btn btn-outline-secondary mr-4" routerLink="/Public" routerLinkActive="active"> Hlavná stránka</a>
+      <div ngbDropdown class="d-inline-block ">
+        <button type="button" class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle>
+          Inteligentne zariadenia
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem routerLink="/SmartRopeInfo" routerLinkActive="active">Yunmai </button>
+          <button ngbDropdownItem routerLink="/SmartBarometerInfo" routerLinkActive="active">iHealth Push</button>
+          <button ngbDropdownItem routerLink="/SmartBnadInfo" routerLinkActive="active"> FitBit Charge II</button>
+          <button ngbDropdownItem routerLink="/SmartWatchInfo" routerLinkActive="active"> FitBit Versa II</button>
+          <button ngbDropdownItem routerLink="/SmartScaleInfo" routerLinkActive="active"> Aria Air</button>
+        </div>
+      </div>
+      <div class="navbar-end" style="margin-left:10px">
+        <button *ngIf="isLoggedIn()" class="btn btn-outline-secondary mr-4" (click)="logout()"> Odhlásenie</button>
+      </div>
+
+      <div class="navbar-end" style="margin-left:10px">
+        <button *ngIf="!isLoggedIn()" class="btn btn-outline-secondary mr-4" routerLink="/Login" routerLinkActive="active"> Prhihlásenie</button>
+      </div>
+    </div>
+  </div>
+
+</nav>
+
+<app-footer></app-footer>

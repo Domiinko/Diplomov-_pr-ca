@@ -1,0 +1,538 @@
+<div class="container is-desktop" id="bcg" style="margin-top: 5%; ">
+  <div class="columns is-desktop">
+    <div class="column">
+      <app-slider></app-slider>
+    </div>
+
+    <div class="column" style="padding-right: 10px">
+      <div class="card" style="width: 100%; text-align: left; ">
+        <header class="card-header">
+          <p class="card-header-title">
+            Inteligentné zariadenia
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            Iteligentné nositeľné zariadenia na meranie fyziologických funkcií sú zariadenia, ktoré sú navrhnuté tak, aby zbierali údaje o fyziologických funkciách užívateľa, ako napríklad tep, krvný tlak, dýchanie, spánok, atď.
+            Patria sem napríklad fitness náramky, chytré hodinky, inteligentné náramky na meranie tepu, inteligentné náramky na monitorovanie spánku,
+            inteligentné náramky na meranie dýchania, inteligentné náramky na meranie krvného tlaku a podobne.
+            Tieto zariadenia zvyčajne poskytujú užívateľovi informácie o ich zdravotnom stave a umožňujú im monitorovať a sledovať svoje fyzické aktivity.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div>
+  <div [ngClass]="'scrollContainer'" class="container is-desktop" style="margin-top: 3%; padding: 65px" id="scroll; border-collapse: collapse;" >
+    <h1>Dáta z meraní fyziologických funkcií</h1>
+<!--    <ng-container *ngIf="currentUser === 'e2FZnn962YZQW23c59eLTzlHPSl1'">-->
+<!--    <hr>-->
+<!--    <div class="table-responsive-sm">-->
+<!--      <p class="title">  iHealth Push </p>-->
+<!--      <div class="scrolling">-->
+<!--        <table class="table">-->
+<!--          <tr>-->
+<!--            <th class="text-center" >Dátum</th>-->
+<!--            <th class="text-center">Systolický</th>-->
+<!--            <th class="text-center">Diastolický</th>-->
+<!--          </tr>-->
+<!--          <ng-container *ngFor="let i of ((barometerPhysioData$ | async))">-->
+<!--            <tr>-->
+<!--              <td>{{i.date}}</td>-->
+<!--              <td>{{i.sys}}</td>-->
+<!--              <td>{{i.dia}}</td>-->
+<!--            </tr>-->
+<!--          </ng-container>-->
+<!--        </table>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <hr>-->
+<!--    <div class="table-responsive-sm">-->
+<!--      <p class="title"> Yunmai </p>-->
+<!--      <div class="scrolling">-->
+<!--        <table class="table">-->
+
+<!--          <tr>-->
+<!--            <th class="text-center">Dátum</th>-->
+<!--            <th class="text-center">Počet skokov</th>-->
+<!--            <th class="text-center">Spálené Kalórie</th>-->
+<!--          </tr>-->
+
+<!--          <ng-container *ngFor='let i of (ropeActivitiesData$ | async)'>-->
+
+<!--            <tr>-->
+<!--              <td>{{ i.date }}</td>-->
+<!--              <td>{{ i.times }} </td>-->
+<!--              <td>{{ i.kcal }}</td>-->
+<!--            </tr>-->
+
+<!--          </ng-container>-->
+
+<!--        </table>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <hr>-->
+
+<!--    <div class="table-responsive-sm">-->
+<!--      <p class="title"> FitBit Charge2 Data</p>-->
+<!--      <div class="scrolling">-->
+<!--        <table class="table">-->
+<!--          <tr>-->
+<!--            <th class="text-center">Dátum</th>-->
+<!--            <th class="text-center">Trvanie</th>-->
+<!--            <th class="text-center">Efektívnosť</th>-->
+<!--          </tr>-->
+
+<!--          <ng-container *ngFor='let i of (bandActivitiesData$ | async)?.["sleep"]'>-->
+
+<!--            <tr>-->
+<!--              <td>{{ i['dateOfSleep'] }}</td>-->
+<!--              <td>{{ i['duration'] }} </td>-->
+<!--              <td> {{ i['efficiency'] }}</td>-->
+<!--            </tr>-->
+<!--          </ng-container>-->
+
+<!--        </table>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <hr>-->
+
+<!--    <div class="table-responsive-sm">-->
+<!--      <p class="title">FitBit Versa2 Data</p>-->
+<!--      <div class="scrolling">-->
+<!--        <table class="table">-->
+
+<!--          <tr>-->
+<!--            <th class="text-center">Dátum</th>-->
+<!--            <th class="text-center">Tep srdca</th>-->
+<!--            <th class="text-center">Činnosť</th>-->
+<!--          </tr>-->
+
+<!--          <ng-container *ngFor='let i of (watchActivitiesData$ | async)?.["activities-heart"]'>-->
+<!--            <tr>-->
+<!--              <td>{{ i['dateTime'] }}</td>-->
+<!--              <td>{{ i['value'].restingHeartRate }} </td>-->
+<!--              <td> Odpočinok</td>-->
+<!--            </tr>-->
+<!--          </ng-container>-->
+
+<!--        </table>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <hr>-->
+
+<!--    <div class="table-responsive-sm">-->
+<!--      <p class="title">FitBit Aria Air Data</p>-->
+<!--      <div class="scrolling">-->
+<!--        <table class="table">-->
+
+<!--          <tr>-->
+<!--            <th class="text-center">Dátum</th>-->
+<!--            <th class="text-center">Váha</th>-->
+<!--            <th class="text-center">BMI</th>-->
+<!--          </tr>-->
+
+<!--          <ng-container *ngFor='let i of (scaleData$ | async)?.["weight"]'>-->
+<!--            <tr>-->
+<!--              <td>{{ i['date'] }}</td>-->
+<!--              <td>{{ i['weight'] }} </td>-->
+<!--              <td>{{ i['bmi'] }}</td>-->
+<!--            </tr>-->
+<!--          </ng-container>-->
+
+<!--        </table>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--</ng-container>-->
+
+<!--    <ng-container *ngIf="currentUser === '5o6uneDu0KbLOWC2RSzIYSt9Aa43'">-->
+
+<!--      <hr>-->
+<!--      <div class="table-responsive-sm">-->
+<!--        <p class="title">  iHealth Push </p>-->
+<!--        <div class="scrolling">-->
+<!--          <table class="table">-->
+<!--            <tr>-->
+<!--              <th class="text-center" >Dátum</th>-->
+<!--              <th class="text-center">Systolický</th>-->
+<!--              <th class="text-center">Diastolický</th>-->
+<!--            </tr>-->
+<!--            <ng-container *ngFor="let i of ((barometerPhysioData2$ | async))">-->
+<!--              <tr>-->
+<!--                <td>{{i.date}}</td>-->
+<!--                <td>{{i.sys}}</td>-->
+<!--                <td>{{i.dia}}</td>-->
+<!--              </tr>-->
+<!--            </ng-container>-->
+<!--          </table>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <hr>-->
+
+<!--      <div class="table-responsive-sm">-->
+<!--        <p class="title"> Yunmai </p>-->
+<!--        <div class="scrolling">-->
+<!--          <table class="table">-->
+
+<!--            <tr>-->
+<!--              <th class="text-center">Dátum</th>-->
+<!--              <th class="text-center">Počet skokov</th>-->
+<!--              <th class="text-center">Spálené Kalórie</th>-->
+<!--            </tr>-->
+
+<!--            <ng-container *ngFor='let i of (ropeActivitiesData2$ | async)'>-->
+
+<!--              <tr>-->
+<!--                <td>{{ i.date }}</td>-->
+<!--                <td>{{ i.times }} </td>-->
+<!--                <td>{{ i.kcal }}</td>-->
+<!--              </tr>-->
+
+<!--            </ng-container>-->
+
+<!--          </table>-->
+<!--        </div>-->
+<!--      </div>-->
+
+
+<!--      <hr>-->
+
+<!--      <div class="table-responsive-sm">-->
+<!--        <p class="title"> FitBit Charge2 Data</p>-->
+<!--        <div class="scrolling">-->
+<!--          <table class="table">-->
+<!--            <tr>-->
+<!--              <th class="text-center">Dátum</th>-->
+<!--              <th class="text-center">Trvanie</th>-->
+<!--              <th class="text-center">Efektívnosť</th>-->
+<!--            </tr>-->
+
+<!--            <ng-container *ngFor='let i of (bandActivitiesData01$ | async)?.["sleep"]'>-->
+
+<!--              <tr>-->
+<!--                <td>{{ i['dateOfSleep'] }}</td>-->
+<!--                <td>{{ i['duration'] }} </td>-->
+<!--                <td> {{ i['efficiency'] }}</td>-->
+<!--              </tr>-->
+<!--            </ng-container>-->
+
+<!--          </table>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <hr>-->
+
+<!--      <div class="table-responsive-sm">-->
+<!--        <p class="title">FitBit Versa2 Data</p>-->
+<!--        <div class="scrolling">-->
+<!--          <table class="table">-->
+
+<!--            <tr>-->
+<!--              <th class="text-center">Dátum</th>-->
+<!--              <th class="text-center">Tep srdca</th>-->
+<!--              <th class="text-center">Činnosť</th>-->
+<!--            </tr>-->
+<!--              <ng-container *ngFor='let i of (watchActivitiesData01$ | async)?.["activities-heart"]'>-->
+<!--                <tr>-->
+<!--                  <td>{{ i['dateTime'] }}</td>-->
+<!--                  <td>{{ i['value'].restingHeartRate }} </td>-->
+<!--                  <td> Odpočinok</td>-->
+<!--                </tr>-->
+<!--              </ng-container>-->
+
+<!--          </table>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <hr>-->
+
+<!--      <div class="table-responsive-sm">-->
+<!--        <p class="title">FitBit Aria Air Data</p>-->
+<!--        <div class="scrolling">-->
+<!--          <table class="table">-->
+
+<!--            <tr>-->
+<!--              <th class="text-center">Dátum</th>-->
+<!--              <th class="text-center">Váha</th>-->
+<!--              <th class="text-center">BMI</th>-->
+<!--            </tr>-->
+
+<!--            <ng-container *ngFor='let i of (scaleData01$ | async)?.["weight"]'>-->
+<!--              <tr>-->
+<!--                <td>{{ i['date'] }}</td>-->
+<!--                <td>{{ i['weight'] }} </td>-->
+<!--                <td>{{ i['bmi'] }}</td>-->
+<!--              </tr>-->
+<!--            </ng-container>-->
+
+<!--          </table>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </ng-container>-->
+
+
+
+    <ng-container [ngSwitch]="currentUser">
+      <ng-container *ngSwitchCase="'e2FZnn962YZQW23c59eLTzlHPSl1'">
+        <hr>
+        <div class="table-responsive-sm">
+          <p class="title">  iHealth Push </p>
+          <div class="scrolling">
+            <table class="table">
+              <tr>
+                <th class="text-center" >Dátum</th>
+                <th class="text-center">Systolický</th>
+                <th class="text-center">Diastolický</th>
+              </tr>
+              <ng-container *ngFor="let i of ((barometerPhysioData$ | async))">
+                <tr>
+                  <td>{{i.date}}</td>
+                  <td>{{i.sys}}</td>
+                  <td>{{i.dia}}</td>
+                </tr>
+              </ng-container>
+            </table>
+          </div>
+        </div>
+        <hr>
+        <div class="table-responsive-sm">
+          <p class="title"> Yunmai </p>
+          <div class="scrolling">
+            <table class="table">
+
+              <tr>
+                <th class="text-center">Dátum</th>
+                <th class="text-center">Počet skokov</th>
+                <th class="text-center">Spálené Kalórie</th>
+              </tr>
+
+              <ng-container *ngFor='let i of (ropeActivitiesData$ | async)'>
+
+                <tr>
+                  <td>{{ i.date }}</td>
+                  <td>{{ i.times }} </td>
+                  <td>{{ i.kcal }}</td>
+                </tr>
+
+              </ng-container>
+
+            </table>
+          </div>
+        </div>
+        <hr>
+
+        <div class="table-responsive-sm">
+          <p class="title"> FitBit Charge2 Data</p>
+          <div class="scrolling">
+            <table class="table">
+              <tr>
+                <th class="text-center">Dátum</th>
+                <th class="text-center">Trvanie</th>
+                <th class="text-center">Efektívnosť</th>
+              </tr>
+
+              <ng-container *ngFor='let i of (bandActivitiesData$ | async)?.["sleep"]'>
+
+                <tr>
+                  <td>{{ i['dateOfSleep'] }}</td>
+                  <td>{{ i['duration'] }} </td>
+                  <td> {{ i['efficiency'] }}</td>
+                </tr>
+              </ng-container>
+
+            </table>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="table-responsive-sm">
+          <p class="title">FitBit Versa2 Data</p>
+          <div class="scrolling">
+            <table class="table">
+
+              <tr>
+                <th class="text-center">Dátum</th>
+                <th class="text-center">Tep srdca</th>
+                <th class="text-center">Činnosť</th>
+              </tr>
+
+              <ng-container *ngFor='let i of (watchActivitiesData$ | async)?.["activities-heart"]'>
+                <tr>
+                  <td>{{ i['dateTime'] }}</td>
+                  <td>{{ i['value'].restingHeartRate }} </td>
+                  <td> Odpočinok</td>
+                </tr>
+              </ng-container>
+
+            </table>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="table-responsive-sm">
+          <p class="title">FitBit Aria Air Data</p>
+          <div class="scrolling">
+            <table class="table">
+
+              <tr>
+                <th class="text-center">Dátum</th>
+                <th class="text-center">Váha</th>
+                <th class="text-center">BMI</th>
+              </tr>
+
+              <ng-container *ngFor='let i of (scaleData$ | async)?.["weight"]'>
+                <tr>
+                  <td>{{ i['date'] }}</td>
+                  <td>{{ i['weight'] }} </td>
+                  <td>{{ i['bmi'] }}</td>
+                </tr>
+              </ng-container>
+
+            </table>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="'5o6uneDu0KbLOWC2RSzIYSt9Aa43'">
+        <hr>
+        <div class="table-responsive-sm">
+          <p class="title">  iHealth Push </p>
+          <div class="scrolling">
+            <table class="table">
+              <tr>
+                <th class="text-center" >Dátum</th>
+                <th class="text-center">Systolický</th>
+                <th class="text-center">Diastolický</th>
+              </tr>
+              <ng-container *ngFor="let i of ((barometerPhysioData2$ | async))">
+                <tr>
+                  <td>{{i.date}}</td>
+                  <td>{{i.sys}}</td>
+                  <td>{{i.dia}}</td>
+                </tr>
+              </ng-container>
+            </table>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="table-responsive-sm">
+          <p class="title"> Yunmai </p>
+          <div class="scrolling">
+            <table class="table">
+
+              <tr>
+                <th class="text-center">Dátum</th>
+                <th class="text-center">Počet skokov</th>
+                <th class="text-center">Spálené Kalórie</th>
+              </tr>
+
+              <ng-container *ngFor='let i of (ropeActivitiesData2$ | async)'>
+
+                <tr>
+                  <td>{{ i.date }}</td>
+                  <td>{{ i.times }} </td>
+                  <td>{{ i.kcal }}</td>
+                </tr>
+
+              </ng-container>
+
+            </table>
+          </div>
+        </div>
+
+
+        <hr>
+
+        <div class="table-responsive-sm">
+          <p class="title"> FitBit Charge2 Data</p>
+          <div class="scrolling">
+            <table class="table">
+              <tr>
+                <th class="text-center">Dátum</th>
+                <th class="text-center">Trvanie</th>
+                <th class="text-center">Efektívnosť</th>
+              </tr>
+
+              <ng-container *ngFor='let i of (bandActivitiesData01$ | async)?.["sleep"]'>
+
+                <tr>
+                  <td>{{ i['dateOfSleep'] }}</td>
+                  <td>{{ i['duration'] }} </td>
+                  <td> {{ i['efficiency'] }}</td>
+                </tr>
+              </ng-container>
+
+            </table>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="table-responsive-sm">
+          <p class="title">FitBit Versa2 Data</p>
+          <div class="scrolling">
+            <table class="table">
+
+              <tr>
+                <th class="text-center">Dátum</th>
+                <th class="text-center">Tep srdca</th>
+                <th class="text-center">Činnosť</th>
+              </tr>
+              <ng-container *ngFor='let i of (watchActivitiesData01$ | async)?.["activities-heart"]'>
+                <tr>
+                  <td>{{ i['dateTime'] }}</td>
+                  <td>{{ i['value'].restingHeartRate }} </td>
+                  <td> Odpočinok</td>
+                </tr>
+              </ng-container>
+
+            </table>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="table-responsive-sm">
+          <p class="title">FitBit Aria Air Data</p>
+          <div class="scrolling">
+            <table class="table">
+
+              <tr>
+                <th class="text-center">Dátum</th>
+                <th class="text-center">Váha</th>
+                <th class="text-center">BMI</th>
+              </tr>
+
+              <ng-container *ngFor='let i of (scaleData01$ | async)?.["weight"]'>
+                <tr>
+                  <td>{{ i['date'] }}</td>
+                  <td>{{ i['weight'] }} </td>
+                  <td>{{ i['bmi'] }}</td>
+                </tr>
+              </ng-container>
+
+            </table>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchDefault>
+        <!-- zobrazí sa, ak currentUser nevyhovuje ani jednej z podmienok -->
+      </ng-container>
+    </ng-container>
+
+
+
+  </div>
+</div>
+
+<br>
+<hr>

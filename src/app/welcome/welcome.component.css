@@ -1,0 +1,19 @@
+.blur{
+  background-color: aliceblue;
+  position: fixed;
+  opacity: 90%;
+  top:0%;
+  width: 100vw;
+  height: 100vh;
+
+}
+.box{
+  position: relative;
+  z-index: 2;
+  width: 50vw;
+  left: 25%;
+  bottom: 30%;
+}
+.content{
+  opacity: 100%;
+}
