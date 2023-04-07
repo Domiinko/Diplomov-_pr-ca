@@ -45,7 +45,7 @@
       </tr>
 
       <ng-container *ngFor='let i of (scaleData$ | async)?.["weight"]'>
-        <tr>
+        <tr [ngStyle]="{'background-color': i.bmi < 26 ? '#e7fdd7' : '#f9e6ad'}">
           <td>{{ i['date'] }}</td>
           <td>{{ i['weight'] }} </td>
           <td>{{ i['bmi'] }}</td>
@@ -112,6 +112,16 @@
 
     </div>
   </div>
+</ng-container>
+
+
+<ng-container *ngIf="isLoggedIn()">
+
+  <div class="column">
+
+    <h4 style="margin-top: 40px; font-style: italic">Žiadne namerané dáta pre tohto používateľa</h4>
+  </div>
+
 </ng-container>
 
 

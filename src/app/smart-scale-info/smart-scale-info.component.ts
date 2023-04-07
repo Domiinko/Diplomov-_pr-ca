@@ -82,6 +82,19 @@ export class SmartScaleInfoComponent implements OnInit {
             }
           });
         });
+
+
+
+
+
+
+
+
+
+
+
+
+
       }
       if(this.currentUser && this.currentUser=== '5o6uneDu0KbLOWC2RSzIYSt9Aa43'){
         combineLatest([

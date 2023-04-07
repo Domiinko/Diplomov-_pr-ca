@@ -1,9 +1,19 @@
 <app-header></app-header>
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
+<!--    <a class="navbar-item" href="https://bulma.io">-->
+<!--      -->
+<!--      -->
+<!--      <img src="./assets/pulse.png" alt="logo" width="100px">-->
+<!--    </a>-->
+
+    <a *ngIf="isLoggedIn()" class="navbar-item" routerLink="/Main" routerLinkActive="active">
       <img src="./assets/pulse.png" alt="logo" width="100px">
     </a>
+    <a *ngIf="!isLoggedIn()" class="navbar-item" routerLink="/Public" routerLinkActive="active">
+      <img src="./assets/pulse.png" alt="logo" width="100px">
+    </a>
+
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -29,6 +39,10 @@
           <button ngbDropdownItem routerLink="/SmartWatchInfo" routerLinkActive="active"> FitBit Versa II</button>
           <button ngbDropdownItem routerLink="/SmartScaleInfo" routerLinkActive="active"> Aria Air</button>
         </div>
+
+      </div>
+      <div class="navbar-end" style="margin-left:10px">
+        <button *ngIf="isLoggedIn()" class="btn btn-outline-secondary mr-4" routerLink="/Statistica" routerLinkActive="active">Štatistika meraní</button>
       </div>
       <div class="navbar-end" style="margin-left:10px">
         <button *ngIf="isLoggedIn()" class="btn btn-outline-secondary mr-4" (click)="logout()"> Odhlásenie</button>
@@ -37,6 +51,9 @@
       <div class="navbar-end" style="margin-left:10px">
         <button *ngIf="!isLoggedIn()" class="btn btn-outline-secondary mr-4" routerLink="/Login" routerLinkActive="active"> Prhihlásenie</button>
       </div>
+<!--      <div class="navbar-end" style="margin-left:10px">-->
+<!--        <button *ngIf="isLoggedIn()" class="btn btn-outline-secondary mr-4" routerLink="/Statistica" routerLinkActive="active">Štatistika meraní</button>-->
+<!--      </div>-->
     </div>
   </div>
 

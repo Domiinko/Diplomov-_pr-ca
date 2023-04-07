@@ -24,6 +24,8 @@ export class SmartBarometerInfoComponent implements OnInit {
   private barometerPhysioData2$$: BehaviorSubject<BarometerData2[]> =new BehaviorSubject<BarometerData2[]>([]);
   readonly barometerPhysioData2$: Observable<BarometerData2[]> =this.barometerPhysioData2$$.asObservable();
 
+
+
   chartDate: any= [];
   //currentUserId: string = '';
   currentUser: string | null = null;

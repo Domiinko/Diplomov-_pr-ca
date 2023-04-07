@@ -47,7 +47,7 @@
           </tr>
 <!--<ng-container *ngIf="currentUser === 'e2FZnn962YZQW23c59eLTzlHPSl1'">-->
           <ng-container *ngFor='let i of ((barometerPhysioData$ | async))'>
-            <tr>
+            <tr [ngStyle]="{'background-color': i.sys < 130 ? '#e7fdd7' : '#f9e6ad'}">
               <td>{{i.date}}</td>
               <td>{{i.sys}}</td>
               <td>{{i.dia}}</td>
@@ -98,7 +98,7 @@
               </tr>
               <!--<ng-container *ngIf="currentUser === 'e2FZnn962YZQW23c59eLTzlHPSl1'">-->
               <ng-container *ngFor='let i of ((barometerPhysioData2$ | async))'>
-                <tr>
+                <tr [ngStyle]="{'background-color': i.sys < 130 ? '#e7fdd7' : '#f9e6ad'}">
                   <td>{{i.date}}</td>
                   <td>{{i.sys}}</td>
                   <td>{{i.dia}}</td>
@@ -129,7 +129,14 @@
 
 
 
+<ng-container *ngIf="isLoggedIn()">
 
+    <div class="column">
+
+  <h4 style="margin-top: 40px; font-style: italic">Žiadne namerané dáta pre tohto používateľa</h4>
+    </div>
+
+</ng-container>
 
 
 

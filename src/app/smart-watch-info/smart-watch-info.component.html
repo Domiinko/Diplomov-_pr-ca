@@ -43,7 +43,7 @@
         </tr>
 
         <ng-container *ngFor='let i of (watchActivitiesData$ | async)?.["activities-heart"]'>
-          <tr>
+          <tr [ngStyle]="{'background-color': i['value'].restingHeartRate < 70 ? '#e7fdd7' : '#f9e6ad'}" *ngIf=" (i.value.restingHeartRate || i.value.restingHeartRate === '')">
             <td>{{ i['dateTime'] }}</td>
             <td>{{ i['value'].restingHeartRate }} </td>
             <td> Odpočinok</td>
@@ -84,9 +84,9 @@
               </tr>
 
               <ng-container *ngFor='let i of (watchActivitiesData01$ | async)?.["activities-heart"]'>
-                <tr>
+                <tr *ngIf="(i.value.restingHeartRate>0) || (i.value.restingHeartRate !== '')">
                   <td>{{ i['dateTime'] }}</td>
-                  <td>{{ i['value'].restingHeartRate }} </td>
+                  <td >{{ i['value'].restingHeartRate }} </td>
                   <td> Odpočinok</td>
                 </tr>
               </ng-container>
@@ -109,5 +109,16 @@
     </div>
   </div>
 </ng-container>
+
+<ng-container *ngIf="isLoggedIn()">
+
+  <div class="column">
+
+    <h4 style="margin-top: 40px; font-style: italic">Žiadne namerané dáta pre tohto používateľa</h4>
+  </div>
+
+</ng-container>
+
+
 <app-footer></app-footer>
 

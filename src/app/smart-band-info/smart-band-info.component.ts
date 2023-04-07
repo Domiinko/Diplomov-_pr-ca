@@ -33,7 +33,7 @@ export class SmartBandInfoComponent implements OnInit {
     // });
 
     this.fyzioDataService.getBandData().subscribe((result: any)=>{
-      console.log(result+"NEJDE TO MORE");
+      console.log(result+"msg");
       this.bandActivitiesData$$.next(result);
     });
 
@@ -60,14 +60,15 @@ export class SmartBandInfoComponent implements OnInit {
           console.log("Vysledky" + dateOfSleep1);
 
           new Chart('myChart', {
-            type: 'line',
+            type: 'bar',
             data: {
               labels: dateOfSleep1.map((d:any) => d.dateOfSleep.format('YYYY-MM-DD')),
-              datasets: [{
-                label: 'Dĺžka spánku',
-                data: duration1,
-                borderWidth: 1
-              },
+              datasets: [
+              //   {
+              //   label: 'Dĺžka spánku',
+              //   data: duration1,
+              //   borderWidth: 1
+              // },
                 {
                   label: 'Efektívnosť',
                   data: efficiency1,

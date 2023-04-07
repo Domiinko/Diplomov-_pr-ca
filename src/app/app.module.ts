@@ -27,6 +27,7 @@ import {FormsModule} from "@angular/forms";
 import { PublicComponent } from './public/public.component';
 import { NgChartsModule } from 'ng2-charts';
 import { SmartRopeInfoComponent } from './smart-rope-info/smart-rope-info.component';
+import { StatisticaComponent } from './statistica/statistica.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SmartRopeInfoComponent } from './smart-rope-info/smart-rope-info.compon
     LoginComponent,
     RegisterComponent,
     PublicComponent,
-    SmartRopeInfoComponent
+    SmartRopeInfoComponent,
+    StatisticaComponent
   ],
   imports: [
     NgChartsModule,

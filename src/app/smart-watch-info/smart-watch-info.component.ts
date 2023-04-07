@@ -57,7 +57,7 @@ export class SmartWatchInfoComponent implements OnInit {
           console.log("Vysledky", dates);
 
           new Chart('myChart', {
-            type: 'line',
+            type: 'bar',
             data: {
               // using moment.js to format dates in 'DD-MM-YYYY' format
               labels: dates.map((d: any) => d.dateTime.format('DD-MM-YYYY')),

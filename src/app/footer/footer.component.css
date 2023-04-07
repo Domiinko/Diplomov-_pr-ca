@@ -4,6 +4,7 @@
   width: 100vw !important;
   background: rgb(238, 231, 231);
   padding: 10px;
+  z-index: 5;
 }
 p{
   color: black;

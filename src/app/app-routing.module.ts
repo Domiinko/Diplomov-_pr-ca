@@ -15,6 +15,7 @@ import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import { PublicComponent } from './public/public.component';
 import {SmartRopeInfoComponent} from "./smart-rope-info/smart-rope-info.component";
+import {StatisticaComponent} from "./statistica/statistica.component";
 
 const routes: Routes = [
   { path: 'Header', component: HeaderComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'SmartBarometerInfo', component: SmartBarometerInfoComponent },
   { path: 'Footer', component: FooterComponent },
   { path: 'Welcome', component: WelcomeComponent },
+  { path: 'Statistica', component: StatisticaComponent },
   { path: '', redirectTo: '/Login', pathMatch: 'full' },
   { path: 'Login', component: LoginComponent },
   { path: 'Register', component: RegisterComponent },
@@ -41,4 +43,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [LoginComponent, RegisterComponent, HeaderComponent, NavComponent, BodyComponent,SmartRopeInfoComponent, MainComponent, WelcomeComponent,PublicComponent, FooterComponent, SliderComponent, SmartBandInfoComponent, SmartWatchInfoComponent, SmartScaleInfoComponent, SmartBarometerInfoComponent];
+export const routingComponents = [LoginComponent, RegisterComponent, HeaderComponent, NavComponent,StatisticaComponent,  BodyComponent,SmartRopeInfoComponent, MainComponent, WelcomeComponent,PublicComponent, FooterComponent, SliderComponent, SmartBandInfoComponent, SmartWatchInfoComponent, SmartScaleInfoComponent, SmartBarometerInfoComponent];

@@ -49,7 +49,7 @@
 
               <ng-container *ngFor='let i of (ropeActivitiesData$ | async)'>
 
-                <tr>
+                <tr [ngStyle]="{'background-color': i.kcal > 5 ? '#e7fdd7' : '#f9e6ad'}" >
                   <td>{{ i.date }}</td>
                   <td>{{ i.times }} </td>
                   <td>{{ i.kcal }}</td>
@@ -113,5 +113,17 @@
     </div>
   </div>
 </ng-container>
+
+
+<ng-container *ngIf="isLoggedIn()">
+
+  <div class="column">
+
+    <h4 style="margin-top: 40px; font-style: italic">Žiadne namerané dáta pre tohto používateľa</h4>
+  </div>
+
+</ng-container>
+
+
 
 <app-footer></app-footer>

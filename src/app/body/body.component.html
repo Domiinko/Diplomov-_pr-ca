@@ -291,7 +291,7 @@
                 <th class="text-center">Diastolický</th>
               </tr>
               <ng-container *ngFor="let i of ((barometerPhysioData$ | async))">
-                <tr>
+                <tr >
                   <td>{{i.date}}</td>
                   <td>{{i.sys}}</td>
                   <td>{{i.dia}}</td>
@@ -317,7 +317,7 @@
                 <tr>
                   <td>{{ i.date }}</td>
                   <td>{{ i.times }} </td>
-                  <td>{{ i.kcal }}</td>
+                  <td>{{ i.kcal }} kcal</td>
                 </tr>
 
               </ng-container>
@@ -341,8 +341,8 @@
 
                 <tr>
                   <td>{{ i['dateOfSleep'] }}</td>
-                  <td>{{ i['duration'] }} </td>
-                  <td> {{ i['efficiency'] }}</td>
+                  <td>{{ ((i['duration']/1000)/3600) | number:'1.0-2'}} h </td>
+                  <td> {{ i['efficiency'] }} %</td>
                 </tr>
               </ng-container>
 
@@ -391,7 +391,7 @@
               <ng-container *ngFor='let i of (scaleData$ | async)?.["weight"]'>
                 <tr>
                   <td>{{ i['date'] }}</td>
-                  <td>{{ i['weight'] }} </td>
+                  <td>{{ i['weight'] }} kg</td>
                   <td>{{ i['bmi'] }}</td>
                 </tr>
               </ng-container>
@@ -440,7 +440,7 @@
                 <tr>
                   <td>{{ i.date }}</td>
                   <td>{{ i.times }} </td>
-                  <td>{{ i.kcal }}</td>
+                  <td>{{ i.kcal }} kcal</td>
                 </tr>
 
               </ng-container>
@@ -525,7 +525,7 @@
         </div>
       </ng-container>
       <ng-container *ngSwitchDefault>
-        <!-- zobrazí sa, ak currentUser nevyhovuje ani jednej z podmienok -->
+        <h3>Žiadne namerané dáta pre tohto používateľa</h3>
       </ng-container>
     </ng-container>
 

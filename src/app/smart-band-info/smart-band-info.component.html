@@ -50,10 +50,10 @@
 
         <ng-container *ngFor='let i of (bandActivitiesData$ | async)?.["sleep"]'>
 
-          <tr>
+          <tr [ngStyle]="{'background-color': i['efficiency'] > 65 ? '#e7fdd7' : '#f9e6ad'}">
             <td>{{ i['dateOfSleep'] }}</td>
-            <td>{{ i['duration'] }} </td>
-            <td> {{ i['efficiency'] }}</td>
+            <td>{{ ((i['duration']/1000)/3600) | number:'1.0-2'}} h </td>
+            <td> {{ i['efficiency'] }} %</td>
           </tr>
         </ng-container>
 
@@ -112,4 +112,16 @@
 </div>
 </div>
 </ng-container>
+
+
+<ng-container *ngIf="isLoggedIn()">
+
+  <div class="column">
+
+    <h4 style="margin-top: 40px; font-style: italic">Žiadne namerané dáta pre tohto používateľa</h4>
+  </div>
+
+</ng-container>
+
+
 <app-footer></app-footer>

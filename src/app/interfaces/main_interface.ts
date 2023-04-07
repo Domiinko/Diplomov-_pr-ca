@@ -65,7 +65,40 @@ export interface WatchData2{
   value: number;
 }
 
+export interface RopeDataStatProf {
+  id: number,
+  date: number,
+  times: number,
+  tep: number,
+  hmotnost: number,
+  vek: number,
+  kcal: number
+}
 
-export interface WatchData {
-
+export interface ScaleDataStatProf {
+  id: number,
+  date: number,
+  weight: number,
+  bmi: number
+}
+export interface ScaleDataStat {
+  id: number,
+  date: number,
+  weight: number,
+  bmi: number,
+  weight2: number,
+  bmi2: number
+}
+export interface WatchDataStat{
+  date: number;
+  tep: number;
+  tep2: number;
+}
+export interface BarometerDataStat {
+  id : number;
+  date : number;
+  sys : number;
+  dia : number;
+  sys2 : number;
+  dia2 : number;
 }
