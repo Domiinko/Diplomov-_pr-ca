@@ -15,7 +15,7 @@
     </a>
 
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" (click)="toggleMenu()">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -23,7 +23,7 @@
   </div>
 
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div id="navbarBasicExample" class="navbar-menu" [class.is-active]="isMenuOpen">
     <div class="navbar-start">
 
       <a *ngIf="isLoggedIn()" class="btn btn-outline-secondary mr-4" routerLink="/Main" routerLinkActive="active"> Hlavná stránka</a>

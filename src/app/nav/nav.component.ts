@@ -7,10 +7,15 @@ import {AuthService} from "../shared/auth.service";
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-
+  isMenuOpen = false;
+  screenWidth: number =0;
   constructor(private auth : AuthService) { }
 
   ngOnInit(): void {
+    this.screenWidth = window.innerWidth;
+    window.onresize = () => {
+      this.screenWidth = window.innerWidth;
+    };
   }
 
   logout(){
@@ -26,7 +31,9 @@ export class NavComponent implements OnInit {
   return this.auth.isLoggedIn();
   }
 
-
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 
 
   // public visible(){

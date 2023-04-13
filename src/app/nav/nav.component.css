@@ -1,5 +1,13 @@
 nav{
   background: rgb(236, 226, 226);
 }
-
+@media screen and (min-width: 769px) {
+  .navbar-burger {
+    display: none;
+  }
+}
+.navbar-menu.is-active {
+  background-color: transparent;
+  margin: 2px;
+}
 

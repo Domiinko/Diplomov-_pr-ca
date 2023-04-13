@@ -8,8 +8,9 @@
   </div>
 
   </div>
-
-<ng-container *ngIf="currentUser === 'e2FZnn962YZQW23c59eLTzlHPSl1'">
+<ng-container [ngSwitch]="currentUser">
+  <ng-container *ngSwitchCase="'e2FZnn962YZQW23c59eLTzlHPSl1'">
+<!--<ng-container *ngIf="currentUser === 'e2FZnn962YZQW23c59eLTzlHPSl1'">-->
   <div *ngIf="isLoggedIn()" class="container is-desktop" style="margin-top: 3%; padding: 50px" id="scroll; border-collapse: collapse; " >
     <div class="columns is-desktop">
       <div class="column">
@@ -35,8 +36,14 @@
                   <td class="text-center" *ngIf="i.sys>i.sys2">{{(((i.sys - i.sys2)/i.sys2)*100) | number:'1.0-2'}}%</td>
                   <td class="text-center" *ngIf="i.sys2>i.sys">{{(((i.sys2 - i.sys)/i.sys)*100) | number:'1.0-2'}}%</td>
                 </tr>
-              </ng-container>
 
+              </ng-container>
+                <tr class="text-center" style="background-color: rgba(206,152,152,0.12)">
+                  <td>Presnosť meranií smart zariadením</td>
+                  <td></td>
+                  <td></td>
+                  <td>131.2 +- 7.12 </td>
+                </tr>
             </table>
           </div>
 
@@ -68,7 +75,12 @@
                   <td class="text-center" *ngIf="i.tep2>i.tep">{{(((i.tep2 - i.tep)/i.tep)*100) | number:'1.0-0'}}%</td>
                 </tr>
               </ng-container>
-
+              <tr class="text-center" style="background-color: rgba(206,152,152,0.12)">
+                <td>Presnosť meranií smart zariadením</td>
+                <td></td>
+                <td></td>
+                <td>66.8 +- 0.4 </td>
+              </tr>
             </table>
           </div>
         </div>
@@ -101,13 +113,19 @@
                   <td class="text-center">{{ i.times }} </td>
                   <td class="text-center">{{ i.kcal }}</td>
 <!--                  <td> (((0.2017* {{ i.vek}}) + (0.1992 * {{i.hmotnost}}) + (0.6309 * {{i.tep}} )) - 55) - ({{ i.times }}/4.184) </td>-->
-                  <td class="text-center">  {{ ((((0.2017 * i.vek) +  (0.1992 * i.hmotnost) + (0.6309 * i.tep)) - 55.0969) * ((i.times/60)/4.184)) | number:'1.0-2'}} </td>
-                  <td class="text-center" *ngIf="i.kcal > (((((0.2017 * i.vek) +  (0.1992 * i.hmotnost) + (0.6309 * i.tep)) - 55.0969) * ((i.times/60)/4.184)) )">  {{ ((((i.kcal - ((((0.2017 * i.vek) +  (0.1992 * i.hmotnost) + (0.6309 * i.tep)) - 55.0969) * ((i.times/60)/4.184)) )/(((((0.2017 * i.vek) +  (0.1992 * i.hmotnost) + (0.6309 * i.tep)) - 55.0969) * ((i.times/60)/4.184)))) *100) | number:'1.0-2')}}% </td>
-                  <td class="text-center" *ngIf="i.kcal < (((((0.2017 * i.vek) +  (0.1992 * i.hmotnost) + (0.6309 * i.tep)) - 55.0969) * ((i.times/60)/4.184)) )">  {{ (((((((((0.2017 * i.vek) +  (0.1992 * i.hmotnost) + (0.6309 * i.tep)) - 55.0969) * ((i.times/60)/4.184)))- i.kcal ) /i.kcal ) *100) | number:'1.0-2')}}% </td>
+                  <td class="text-center">  {{ ((((0.2017 * i.vek) +  (0.1992 * i.hmotnost) + (0.6309 * i.tep)) - 55.0969) * ((i.times/60)/4.184)) | number:'1.0-2'}} kcal</td>
+                  <td class="text-center" *ngIf="i.kcal > (((((0.2017 * i.vek) +  (0.1992 * i.hmotnost) + (0.6309 * i.tep)) - 55.0969) * ((i.times/60)/4.184)) )">  {{ ((i.kcal - (((((0.2017 * i.vek) +  (0.1992 * i.hmotnost) + (0.6309 * i.tep)) - 55.0969) * ((i.times/60)/4.184))))| number:'1.0-2') }} kcal  </td>
+                  <td class="text-center" *ngIf="i.kcal < (((((0.2017 * i.vek) +  (0.1992 * i.hmotnost) + (0.6309 * i.tep)) - 55.0969) * ((i.times/60)/4.184)) )">  {{ ((((((((0.2017 * i.vek) +  (0.1992 * i.hmotnost) + (0.6309 * i.tep)) - 55.0969) * ((i.times/60)/4.184))- i.kcal )  ) ) | number:'1.0-2')}} kcal </td>
                 </tr>
 
               </ng-container>
-
+              <tr class="text-center" style="background-color: rgba(206,152,152,0.12)">
+                <td>Presnosť meranií smart zariadením</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>8.2 +- 3.24</td>
+              </tr>
             </table>
           </div>
 
@@ -140,17 +158,24 @@
 
                 <tr>
                   <td class="text-center">{{ i['date'] }}</td>
-                  <td class="text-center">{{ i['weight'] }} </td>
+                  <td class="text-center">{{ i['weight'] }} kg</td>
                   <td class="text-center">{{ i['bmi'] }}</td>
 
-                  <td class="text-center">{{ i['weight2'] }} </td>
+                  <td class="text-center">{{ i['weight2'] }} kg</td>
                   <td class="text-center">{{ i['bmi2'] }}</td>
                   <td class="text-center" *ngIf="i.bmi2>i.bmi">{{(((i.bmi2 - i.bmi)/i.bmi)*100) | number:'1.0-2'}}%</td>
                   <td class="text-center" *ngIf="i.bmi>i.bmi2">{{(((i.bmi - i.bmi2)/i.bmi2)*100) | number:'1.0-2'}}%</td>
                 </tr>
 
               </ng-container>
-
+              <tr class="text-center" style="background-color: rgba(206,152,152,0.12)">
+                <td>Presnosť meranií smart zariadením</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>71.88 +- 0.875</td>
+              </tr>
             </table>
           </div>
 
@@ -161,33 +186,10 @@
     </div>
 
 
-<!--    <div class="columns is-desktop">-->
-<!--      <div class="column">-->
-<!--        <div class="table-responsive-sm">-->
-<!--          <p class="title"> FitBit Charge2 Data</p>-->
-<!--          <div class="scrolling">-->
-<!--            <table class="table">-->
-<!--              <tr>-->
-<!--                <th class="text-center">Dátum</th>-->
-<!--                <th class="text-center">Trvanie</th>-->
-<!--                <th class="text-center">Efektívnosť</th>-->
-<!--              </tr>-->
-
-<!--              <ng-container *ngFor='let i of (bandActivitiesData$ | async)?.["sleep"]'>-->
-
-<!--                <tr>-->
-<!--                  <td class="text-center">{{ i['dateOfSleep'] }}</td>-->
-<!--                  <td class="text-center">{{ i['duration'] }} </td>-->
-<!--                  <td class="text-center"> {{ i['efficiency'] }}</td>-->
-<!--                </tr>-->
-<!--              </ng-container>-->
-
-<!--            </table>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--    </div>-->
 
   </div>
+</ng-container>
+  <ng-container *ngSwitchDefault>
+    <h3 style="margin-left: 15px">Žiadne namerané dáta pre tohto používateľa</h3>
+  </ng-container>
 </ng-container>

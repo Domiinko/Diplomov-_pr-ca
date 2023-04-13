@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "docs",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -39,8 +39,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "3mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -69,6 +69,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "src/proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "browserTarget": "FyzioApp:build:production"
@@ -91,8 +94,8 @@
             "prerender": false,
             "ssr": false,
             "browserTarget": "FyzioApp:build:production",
-            "firebaseProject": "physiosmart-6729e",
-            "firebaseHostingSite": "physiosmart-6729e"
+            "firebaseProject": "physiosmart-64744",
+            "firebaseHostingSite": "physiosmart-64744"
           }
         }
       }

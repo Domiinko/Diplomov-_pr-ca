@@ -3,10 +3,10 @@
     "default": "physiosmart-6729e"
   },
   "targets": {
-    "physiosmart-6729e": {
+    "physiosmart-64744": {
       "hosting": {
         "FyzioApp": [
-          "physiosmart-6729e"
+          "physiosmart-64744"
         ]
       }
     }

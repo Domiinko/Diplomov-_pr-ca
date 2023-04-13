@@ -24,6 +24,16 @@
   </div>
 </div>
 <br>
+<p>{{ barometerPhysioData3$ | async }}</p>
+<ng-container *ngFor="let i of ((barometerPhysioData3$ | async))">
+  <tr >
+    <td>{{i.date}}</td>
+    <td>{{i.sys}}</td>
+    <td>{{i.dia}}</td>
+  </tr>
+</ng-container>
+
+
 <div>
   <div [ngClass]="'scrollContainer'" class="container is-desktop" style="margin-top: 3%; padding: 65px" id="scroll; border-collapse: collapse;" >
     <h1>Dáta z meraní fyziologických funkcií</h1>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {
   BandData,
   RopeDataStatProf,
@@ -12,32 +12,56 @@ import {
   BandData2,
   ScaleDataStat, ScaleDataStatProf, WatchDataStat, BarometerDataStat
 } from "./interfaces/main_interface";
+import {AngularFireDatabase} from "@angular/fire/compat/database";
+//import {AngularFireDatabase} from "@angular/fire/compat/database";
+// import {AngularFireDatabase, AngularFireList} from "@angular/fire/compat/database";
+// import {AngularFirestore} from "@angular/fire/compat/firestore";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class FyzioDataService {
+ // 'https://console.firebase.google.com/project/physiosmart-64744/database/physiosmart-64744-default-rtdb/data/BarometerData'
 
-  urlBarometerData: string = 'http://localhost:3000/BarometerData';
+//AIzaSyDr9EU9adHc6ICvSr75-2qbfHb1kOxKrEQ
+   //urlBarometerData: string = 'http://localhost:3000/BarometerData';
+  urlBarometerData: string = 'https://physiosmart-64744-default-rtdb.europe-west1.firebasedatabase.app/BarometerData.json';
   urlBarometerData2: string = 'http://localhost:3000/BarometerData2';
-  urlRopeData: string = 'http://localhost:3000/RopeData';
-  urlRopeDataStatProf: string = 'http://localhost:3000/RopeDataStatProf';
+  //urlRopeData: string = 'http://localhost:3000/RopeData';
+  urlRopeData: string = 'https://physiosmart-64744-default-rtdb.europe-west1.firebasedatabase.app/RopeData.json';
+  urlRopeDataStatProf: string = 'https://physiosmart-64744-default-rtdb.europe-west1.firebasedatabase.app/RopeDataStatProf.json';
   urlRopeData2: string = 'http://localhost:3000/RopeData2';
   urlBandData1: string = 'http://localhost:3000/BandData1';
   urlBandData2: string = 'http://localhost:3000/BandData2';
-  urlScaleDataStat: string = 'http://localhost:3000/ScaleDataStat';
-  urlScaleDataStatProf: string = 'http://localhost:3000/ScaleDataStatProf';
-  urlWatchDataStat: string = 'http://localhost:3000/WatchDataStat';
-  urlBaroDataStat: string = 'http://localhost:3000/BarometerDataStat';
-  constructor(private http: HttpClient) { }
-  access_token="eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMzkyVzMiLCJzdWIiOiJCOEhQNFoiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyYWN0IHJsb2MgcndlaSByaHIgcm51dCByc2xlIiwiZXhwIjoxNzEyNDA4NzkxLCJpYXQiOjE2ODA4OTYzODd9.Lsxba2TjpE8PTvSEOBv336oh54aytQtA5QYsGLXOHvg"
+  urlScaleDataStat: string = 'https://physiosmart-64744-default-rtdb.europe-west1.firebasedatabase.app/ScaleDataStat.json';
+  urlScaleDataStatProf: string = 'https://physiosmart-64744-default-rtdb.europe-west1.firebasedatabase.app/ScaleDataStatProf.json';
+  urlWatchDataStat: string = 'https://physiosmart-64744-default-rtdb.europe-west1.firebasedatabase.app/WatchDataStat.json';
+  urlBaroDataStat: string = 'https://physiosmart-64744-default-rtdb.europe-west1.firebasedatabase.app/BarometerDataStat.json';
+
+  //
+  // urlScaleDataStat: string = 'http://localhost:3000/ScaleDataStat';
+  // urlScaleDataStatProf: string = 'http://localhost:3000/ScaleDataStatProf';
+  // urlWatchDataStat: string = 'http://localhost:3000/WatchDataStat';
+  // urlBaroDataStat: string = 'http://localhost:3000/BarometerDataStat';
+
+  private barometerDataRef = this.db2.list<BarometerData>('BarometerData');
+
+  constructor(private http: HttpClient, private db2: AngularFireDatabase) { }
+ // access_token="eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMzkyVzMiLCJzdWIiOiJCOEhQNFoiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyYWN0IHJsb2MgcndlaSByaHIgcm51dCByc2xlIiwiZXhwIjoxNzEyNDA4NzkxLCJpYXQiOjE2ODA4OTYzODd9.Lsxba2TjpE8PTvSEOBv336oh54aytQtA5QYsGLXOHvg"
   // access_token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMzkyVzMiLCJzdWIiOiJCOEhQNFoiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyYWN0IHJsb2MgcndlaSByaHIgcm51dCByc2xlIiwiZXhwIjoxNjgwODI5MDQ2LCJpYXQiOjE2ODA4MDAyNDZ9.8YXWWbx-IinCTf8sBzv68jazb1SzSk8Q98Et4T7YepA"
   access_token_watch = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMzhaM1IiLCJzdWIiOiJCOVRCN1IiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJybG9jIHJociByYWN0IHJudXQiLCJleHAiOjE2ODAxNDcwNjEsImlhdCI6MTY4MDExODI2MX0.gM9nV3thBGSByBhwVL6iNu0KqUuJQQtAdim3Ln6x_hU"
+
+  access_token="eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMzkyVzMiLCJzdWIiOiJCOEhQNFoiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyYWN0IHJsb2MgcndlaSByaHIgcm51dCByc2xlIiwiZXhwIjoxNzEyNDA4NzkxLCJpYXQiOjE2ODA4OTYzODd9.Lsxba2TjpE8PTvSEOBv336oh54aytQtA5QYsGLXOHvg"
 
   requestOptions = {
     headers: {"Authorization": "Bearer " + this.access_token}
   };
+
+  getBandData(): Observable<any>{
+    return  this.http.get<any>(	'https://api.fitbit.com/1.2/user/B8HP4Z/sleep/date/2022-11-01/2023-01-10.json', this.requestOptions)
+  }
+
   requestOptions_watch = {
     headers: {"Authorization": "Bearer " + this.access_token_watch}
   };
@@ -46,11 +70,28 @@ export class FyzioDataService {
     headers: {"Authorization": "Bearer " + this.access_token}
   };
 
+
+getData3():Observable<BarometerData[]>{
+
+  console.log('getBarometerData(): Getting data from Firebase Realtime Database.');
+  return this.barometerDataRef.valueChanges();
+}
+
   getData2(){
     return this.http.get('https://api.fitbit.com/1/user/-/activities.json', this.requestOptions)
   }
 
-  getBandData(): Observable<any>{
+
+  getBarometerData5(): Observable<BarometerData[]>{
+    console.log("tlakomer data"+this.urlBarometerData);
+    return this.http.get<BarometerData[]>(this.urlBarometerData);
+    console.log("tlakomer data"+this.urlBarometerData);
+
+  }
+
+
+
+  getBandData6(): Observable<any>{
     return  this.http.get<any>(	'https://api.fitbit.com/1.2/user/B8HP4Z/sleep/date/2022-11-01/2023-01-10.json', this.requestOptions)
     // return this.http.get<any>('https://api.fitbit.com/1/user/B8HP4Z/activities/heart/date/2022-12-19/2022-12-20.json', this.requestOptions);
   }

@@ -105,14 +105,7 @@ export class StatisticaComponent {
 
         this.fyzioDataService.getRopeDataStatProf().subscribe((result: any) => {
           console.log(result);
-         // this.ropeActivitiesDataProf$$.next(result);
-         //  this.vysledokProf = (((0.2017* result.vek) + (0.1992 * result.hmotnost) + (0.6309 * result.tep)) - 55) - (result.times / 4.184);
-         //  console.log(this.vysledokProf +" vysledocek");
 
-          // if (result.vek !== 0 && result.hmotnost !== 0 && result.tep !== 0 && result.times !== 0 || ) {
-          //   this.vysledokProf = (((0.2017* result.vek) + (0.1992 * result.hmotnost) + (0.6309 * result.tep)) - 55) - (result.times / 4.184);
-          //   console.log(this.vysledokProf +" vysledocek");
-          // }
 
 
 
@@ -122,46 +115,16 @@ export class StatisticaComponent {
 
       }
     });
-    //     combineLatest([
-    //       this.fyzioDataService.getRopeDataStatProf().pipe(map(data => data.map(item => item.times))),
-    //       this.fyzioDataService.getRopeDataStatProf().pipe(map(data => data.map(item => item.vek))),
-    //       this.fyzioDataService.getRopeDataStatProf().pipe(map(data => data.map(item => item.hmotnost))),
-    //       this.fyzioDataService.getRopeDataStatProf().pipe(map(data => data.map(item => ({
-    //         times: item.times,
-    //         vek: item.vek,
-    //         hmotnost: item.hmotnost,
-    //         tep: item.tep
-    //       })))),
-    //       //   times: item.times,
-    //       //   vek: item.vek,
-    //       // hmotnost: item.hmotnost,
-    //       // tep: item.tep
-    //
-    //     ]).subscribe(([times, vek, hmotnost, tep]) => {
-    //       this.ropeActivitiesDataProf$$ = (0.2017 * (vek
-    //     :
-    //       (any)
-    //     ))
-    //     });
-    //
-    //   }
-    // });
 
-
-
-
-    // this.fyzioDataService.getBarometerData2().subscribe((result: any)=>{
-    //   console.log("vysledok"+result);
-    //   this.barometerPhysioData2$$.next(result);
-    //   //this.chartDate=result.date;
-    //
-    // });
   }
   public isLoggedIn() {
 
     // return this.isLoggin=true;
     return this.auth.isLoggedIn();
   }
-
+  odchylkaTlak=0;
+public odchylkaTlakF(){
+ this.odchylkaTlak= (130 + 129 + 119 + 129 + 149) / 5
+}
 
 }

@@ -22,13 +22,16 @@ export class BodyComponent implements OnInit {
   fyzioData: any;
   fyzioData$: any;
 
-  "jano-fero": any;
+
 
   // private bandPhysioData$$: BehaviorSubject<BandData[] | undefined> =new BehaviorSubject<BandData[] | undefined>([] );
   // readonly bandPhysioData$: Observable<BandData[] | undefined> =this.bandPhysioData$$.asObservable();
 
   private barometerPhysioData$$: BehaviorSubject<BarometerData[]> =new BehaviorSubject<BarometerData[]>([]);
   readonly barometerPhysioData$: Observable<BarometerData[]> =this.barometerPhysioData$$.asObservable();
+
+  private barometerPhysioData3$$: BehaviorSubject<BarometerData[]> =new BehaviorSubject<BarometerData[]>([]);
+  readonly barometerPhysioData3$: Observable<BarometerData[]> =this.barometerPhysioData3$$.asObservable();
 
   private barometerPhysioData2$$: BehaviorSubject<BarometerData2[]> =new BehaviorSubject<BarometerData2[]>([]);
   readonly barometerPhysioData2$: Observable<BarometerData2[]> =this.barometerPhysioData2$$.asObservable();
@@ -153,6 +156,11 @@ export class BodyComponent implements OnInit {
           this.ropeActivitiesData$$.next(result);
         });
 
+        this.fyzioDataService.getData3().subscribe((result: any)=>{
+          console.log(result+'to to su data z barometru');
+          this.barometerPhysioData3$$.next(result);
+        });
+
         this.fyzioDataService.getBarometerData2().subscribe((result: any)=>{
           console.log(result);
           this.barometerPhysioData$$.next(result);
@@ -176,6 +184,10 @@ export class BodyComponent implements OnInit {
           this.scaleData$$.next(response);
         }
       );
+      this.fyzioDataService.getData3().subscribe((result: any)=>{
+        console.log(result+'to to su data z barometru');
+        this.barometerPhysioData3$$.next(result);
+      });
 
       this.fyzioDataService.getRopeData().subscribe((result: any)=>{
         console.log(result);
